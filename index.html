@@ -39,7 +39,46 @@
             <!-- <audio src="love.mp3" autoplay="autoplay"></audio> -->
         </div>
     
-    <script>
+    <script type="text/javascript">
+    /* 鼠标特效 */
+    var a_idx = 0;
+    jQuery(document).ready(function ($) {
+        $("body").click(function (e) {
+            var a = [
+                "西红柿炒鸡蛋", "生吃胡萝卜", "红枣枣", "奶茶", "粉条", "漂亮的小裙子", "蛋挞", "口红", "生吃西红柿", "辣条", "泰芒了", "周黑鸭", "蛋糕", "雪糕", "蛋卷", "麻辣烫", "拔丝地瓜	", 
+                "白色羽绒服", "《名侦探柯南》", "鱼虾", "汉服",
+                "草莓", "菠萝","山竹","地瓜球","糖炒栗子"
+            ];
+            var b = [
+                "#FFF68F", "#FFBBFF", "#FF0000", "#FF00FF", "#F08080",
+                "#008000", "#7FFFAA", "#0000CD", "#0000FF", "#080808"
+            ];
+            var a_index = Math.floor((Math.random() * a.length));
+            var b_index = Math.floor((Math.random() * b.length));
+
+            var color = b[b_index];
+            var $i = $("<span/>").text(a[a_index]);
+            /* a_idx = (a_idx + 1) % a.length; */
+            var x = e.pageX,
+                y = e.pageY;
+
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": color,
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            }, 1500, function () {
+                $i.remove();
+            });
+        });
+    });
     </script>
 
     <script>
